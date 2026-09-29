@@ -15,9 +15,7 @@ const FlagName_MessageHistorySize = "ux.MessageHistorySize"
 
 // Type for 'Flags' feature flag container.
 type flags struct {
-	// EnableNewFeature controls whether the new feature is enabled for the current user.
-	EnableNewFeature server.RoxFlag
-	rox              *server.Rox
+	rox *server.Rox
 }
 
 // Type for 'UxFlags' feature flag container.
@@ -40,8 +38,7 @@ type svcFlags struct {
 
 // Flags container that will be registered that will be registered without a namespace.
 var Flags = &flags{
-	EnableNewFeature: server.NewRoxFlag(false),
-	rox:              server.NewRox(),
+	rox: server.NewRox(),
 }
 
 // UxFlags container that will be registered under the 'ux' namespace.
